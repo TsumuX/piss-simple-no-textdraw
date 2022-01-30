@@ -3,20 +3,6 @@
 #define COLOR_RED FF0000 //udah ada biasa bawaan gm
 new Kencing[MAX_PLAYERS];
 
-epublic: Piss(playerid)
-{
-	Kencing[playerid] +=1;
-	SendClientMessage (playerid, COLOR_RED, "karakter Anda Ingin Kencing{FFFFFF} Gunakan /piss untuk kencing");
-	return 1;
-}
-
-epublic: WaktuKencing(playerid)
-{
-	Kencing[playerid] -=1;
-	SendClientMessage (playerid, COLOR_RED, "karakter Anda Merasa Lega");
-	return 1;
-}
-
 public OnPlayerSpawn(playerid)
 {
 	SetTimerEx("Kencing" 300000, true, "i", playerid);
@@ -33,5 +19,19 @@ CMD:piss(playerid, params[])
 	ProxDetector(15.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
     GameTextForPlayer(playerid, "~g~Sedang Pipis~n~~w~Harap tunggu sebentar...", 5000, 3);
 	SetTimerEx("Piss", 5000, false, "i", playerid);
+	return 1;
+}
+
+epublic: Piss(playerid)
+{
+	Kencing[playerid] +=1;
+	SendClientMessage (playerid, COLOR_RED, "karakter Anda Ingin Kencing{FFFFFF} Gunakan /piss untuk kencing");
+	return 1;
+}
+
+epublic: WaktuKencing(playerid)
+{
+	Kencing[playerid] -=1;
+	SendClientMessage (playerid, COLOR_RED, "karakter Anda Merasa Lega");
 	return 1;
 }
