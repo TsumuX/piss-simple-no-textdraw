@@ -26,19 +26,12 @@ public OnPlayerSpawn(playerid)
 CMD:piss(playerid, params[])
 {
 	new name[MAX_PLAYER_NAME];
-
 	if(Kencing[playerid] <1) return SendClientMessage(playerid, COLOR_RED, "Anda Belum Ingin Kencing");
-
 	ApplyAnimation(playerid, "PAULNMAC","Piss_loop",3.0,1,1,0,0,0);
-
     new string[128 + MAX_PLAYER_NAME];
-
 	format(string, sizeof(string), "* %s membuka sleting celana dan mulai pipis.", name);
-
 	ProxDetector(15.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
     GameTextForPlayer(playerid, "~g~Sedang Pipis~n~~w~Harap tunggu sebentar...", 5000, 3);
-
 	SetTimerEx("Piss", 5000, false, "i", playerid);
 	return 1;
 }
